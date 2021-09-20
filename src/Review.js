@@ -1,12 +1,11 @@
-import { ArrowBackIosRounded, ArrowForwardIosRounded, FormatQuoteRounded } from '@mui/icons-material';
-import { Paper } from '@mui/material';
 import React, { useState } from 'react';
 import people from './data';
-// import { FaChevronLeft, FaChevronRight, FaQuoteRight } from 'react-icons/fa';
+import { ArrowBackIosRounded, ArrowForwardIosRounded, FormatQuoteRounded } from '@mui/icons-material';
 
 const Review = () => {
   const [index, setIndex] = useState(0)
   const {name, job, image, text} = people[index]
+
   return (
       <div className="review">
         <div className="img-container">
@@ -16,9 +15,9 @@ const Review = () => {
         <h3 className="author">{name}</h3>
         <h4 className="job">{job}</h4>
         <p className="info">{text}</p>
-        <div>
-          <button className="prev-btn" ><ArrowBackIosRounded /></button>
-          <button className="next-btn" ><ArrowForwardIosRounded /></button>
+        <div className="button-container">
+          <button className="prev-btn" onClick={() => setIndex(index - 1)} ><ArrowBackIosRounded /></button>
+          <button className="next-btn" onClick={() => setIndex(index + 1)} ><ArrowForwardIosRounded /></button>
         </div>
         <button className="random-btn">Surprise Me</button>
       </div>
