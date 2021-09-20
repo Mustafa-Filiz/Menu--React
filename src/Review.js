@@ -26,6 +26,18 @@ const Review = () => {
     })
   }
 
+  const handleRandomButton = () => {
+    setIndex(() => {
+      function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+      }
+      let newIndex = getRandomInt(0, 3)
+      return newIndex
+    })
+  }
+
   return (
       <div className="review">
         <div className="img-container">
@@ -39,7 +51,7 @@ const Review = () => {
           <button className="prev-btn" onClick={handlePrevButton} ><ArrowBackIosRounded /></button>
           <button className="next-btn" onClick={handleNextButton} ><ArrowForwardIosRounded /></button>
         </div>
-        <button className="random-btn">Surprise Me</button>
+        <button className="random-btn" onClick={handleRandomButton}>Surprise Me</button>
       </div>
   );
 };
