@@ -10,12 +10,18 @@ const Review = () => {
   const handlePrevButton = () => {
     setIndex(() => {
       let newIndex = index - 1
+      if (index === 0) {
+        newIndex = 3
+      }
       return newIndex
     })
   }
   const handleNextButton = () => {
     setIndex(() => {
       let newIndex = index + 1
+      if (newIndex === 4) {
+        newIndex = 0
+      }
       return newIndex
     })
   }
