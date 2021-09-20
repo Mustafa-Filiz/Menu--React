@@ -2,9 +2,23 @@ import React, { useState } from 'react';
 import people from './data';
 import { ArrowBackIosRounded, ArrowForwardIosRounded, FormatQuoteRounded } from '@mui/icons-material';
 
+
 const Review = () => {
   const [index, setIndex] = useState(0)
   const {name, job, image, text} = people[index]
+
+  const handlePrevButton = () => {
+    setIndex(() => {
+      let newIndex = index - 1
+      return newIndex
+    })
+  }
+  const handleNextButton = () => {
+    setIndex(() => {
+      let newIndex = index + 1
+      return newIndex
+    })
+  }
 
   return (
       <div className="review">
@@ -16,8 +30,8 @@ const Review = () => {
         <h4 className="job">{job}</h4>
         <p className="info">{text}</p>
         <div className="button-container">
-          <button className="prev-btn" onClick={() => setIndex(index - 1)} ><ArrowBackIosRounded /></button>
-          <button className="next-btn" onClick={() => setIndex(index + 1)} ><ArrowForwardIosRounded /></button>
+          <button className="prev-btn" onClick={handlePrevButton} ><ArrowBackIosRounded /></button>
+          <button className="next-btn" onClick={handleNextButton} ><ArrowForwardIosRounded /></button>
         </div>
         <button className="random-btn">Surprise Me</button>
       </div>
