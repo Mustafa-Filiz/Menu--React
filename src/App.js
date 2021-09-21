@@ -9,11 +9,11 @@ function App() {
 
 
     const filterItems = (e) => {
+        if (e.target.value === "all") {
+            setMenuItems(items);
+            return;
+        }
         setMenuItems(items.filter((item) => item.category === e.target.value))
-    }
-
-    const showAll = () => {
-        setMenuItems(items)
     }
 
     return (
@@ -23,7 +23,7 @@ function App() {
                     <h2>our menu</h2>
                     <div className="underline"></div>
                 </div>
-                <Categories filterItems={filterItems} showAll={showAll}  />
+                <Categories filterItems={filterItems} />
                 <Menu items={menuItems} />
             </section>
         </main>
